@@ -1,42 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Wayne &amp; Co. — The Brotherhood</title>
-<style>
-:root{--bg:#070809;--ink:#f1f1ee;--muted:#92959a;--accent:#c8a85a;--accent2:#e4cf91;--card:#101214;--line:#292c30;--shadow:0 24px 70px rgba(0,0,0,.55)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
-.app{min-height:100vh;background:radial-gradient(circle at 72% 8%,rgba(200,168,90,.09),transparent 28%),var(--bg)}
-nav{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 6vw;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(7,8,9,.88);backdrop-filter:blur(16px);position:sticky;top:0;z-index:10}.brand{font-weight:900;letter-spacing:.12em;font-size:16px;text-transform:uppercase}.brand span{color:var(--accent)}nav a{color:#c7c9cc;text-decoration:none;margin-left:28px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}nav a:hover{color:var(--accent)}
-.hero{padding:105px 6vw 90px;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;max-width:1280px;margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:.24em;font-size:10px;font-weight:900;color:var(--accent);margin-bottom:20px}.hero h1{font-size:clamp(54px,7vw,96px);line-height:.9;letter-spacing:-.065em;margin:0 0 28px;text-transform:uppercase}.hero h1 em{font-family:Georgia,serif;font-weight:400;color:var(--accent);font-style:italic;text-transform:none}.hero p{font-size:17px;line-height:1.8;color:var(--muted);max-width:570px}.actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}.btn{border:0;border-radius:3px;padding:14px 21px;font-weight:800;cursor:pointer;font-size:11px;letter-spacing:.12em;text-transform:uppercase}.primary{background:var(--accent);color:#080909}.secondary{background:transparent;border:1px solid #3a3d40;color:var(--ink)}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,.35)}
-.visual{position:relative;min-height:450px}.blob{position:absolute;inset:15px 25px 15px 10px;background:linear-gradient(145deg,#25292c,#090a0b);border:1px solid #34373a;border-radius:3px;transform:rotate(-5deg);box-shadow:var(--shadow)}.photo{position:absolute;inset:55px 45px 40px 50px;background:radial-gradient(circle at 50% 15%,#3b3f43,#090a0b 62%);border:1px solid #4b4e51;border-radius:3px;transform:rotate(3deg);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;color:#fff;text-align:center;padding:35px}.photo:before{content:"";position:absolute;inset:18px;border:1px solid rgba(200,168,90,.25)}.photo strong{font-family:Georgia,serif;font-size:54px;line-height:.95;color:#d8d8d4;letter-spacing:-.04em}.sticker{position:absolute;background:#111315;border:1px solid #34373a;color:#d0d1cd;padding:13px 18px;border-radius:2px;box-shadow:0 12px 28px rgba(0,0,0,.4);font-weight:900;font-size:10px;letter-spacing:.12em;text-transform:uppercase}.one{top:32px;right:0;transform:rotate(7deg)}.two{bottom:24px;left:0;transform:rotate(-8deg)}
-.section{padding:75px 6vw;max-width:1280px;margin:auto}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:35px}.section h2{font-size:clamp(34px,4vw,54px);letter-spacing:-.05em;margin:0;text-transform:uppercase}.section-head p{max-width:430px;color:var(--muted);line-height:1.6;margin:0}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(145deg,#111416,#0c0e0f);border:1px solid var(--line);border-radius:3px;padding:28px;min-height:230px;box-shadow:0 8px 30px rgba(0,0,0,.25);transition:.25s}.card:hover{transform:translateY(-6px);border-color:#4a4537;box-shadow:var(--shadow)}.icon{font-size:25px;margin-bottom:30px;filter:grayscale(1)}.card h3{margin:0 0 10px;font-size:20px;letter-spacing:.02em}.card p{margin:0;color:var(--muted);line-height:1.65}
-.quote{margin:30px 6vw 80px;padding:65px 8vw;border-radius:3px;background:#111315;border:1px solid #2e3134;color:#fff;text-align:center;position:relative;overflow:hidden}.quote:after{content:"♠";position:absolute;font-size:260px;opacity:.035;right:20px;bottom:-120px}.quote blockquote{font-family:Georgia,serif;font-style:italic;font-size:clamp(28px,4vw,48px);line-height:1.2;max-width:850px;margin:0 auto 22px}.quote p{color:#a9aba9;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
-.memories{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.memory{border-radius:3px;padding:32px;min-height:230px;display:flex;flex-direction:column;justify-content:end;overflow:hidden;position:relative;border:1px solid #34373a}.memory:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,.75));}.memory>*{position:relative}.m1{background:linear-gradient(135deg,#292d31,#111315)}.m2{background:linear-gradient(135deg,#4b473b,#151616)}.memory h3{font-size:25px;margin:0 0 5px;color:#fff}.memory p{margin:0;color:#b7b9b8}.small-grid{display:grid;gap:18px}.footer{padding:40px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase}.heart-btn{position:fixed;right:24px;bottom:24px;width:58px;height:58px;border:1px solid #8e7741;border-radius:2px;background:#151311;color:var(--accent);font-size:25px;box-shadow:0 12px 30px rgba(0,0,0,.45);cursor:pointer;z-index:20}.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:#e4cf91;color:#111;padding:13px 19px;border-radius:2px;opacity:0;pointer-events:none;transition:.3s;font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;z-index:30}.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:800px){nav{padding:0 5vw}nav div:last-child{display:none}.hero{grid-template-columns:1fr;padding-top:55px}.visual{min-height:360px}.cards,.memories{grid-template-columns:1fr}.section{padding:55px 5vw}.quote{margin:10px 5vw 55px;padding:50px 7vw}.footer{padding:32px 5vw;flex-direction:column}.hero h1{font-size:58px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Friends Forever | A Celebration of Friendship</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div class="app">
-<nav><div class="brand">WAYNE<span> &amp; CO.</span></div><div><a href="#why">Code</a><a href="#moments">Moments</a><a href="#promise">The oath</a></div></nav>
-<main>
-<section class="hero">
-<div><div class="eyebrow">The people you protect. The people who protect you.</div><h1>Trust is the ultimate <em>alliance.</em></h1><p>Real friendship is loyalty without an audience, silence without discomfort, and knowing that when the city gets dark, someone still has your back.</p><div class="actions"><button class="btn primary" onclick="scrollToId('moments')">Enter the circle ↓</button><button class="btn secondary" onclick="showToast('Signal sent. Your person knows.')">Send the signal</button></div></div>
-<div class="visual"><div class="blob"></div><div class="photo"><strong>same<br>side,<br>always.</strong></div><div class="sticker one">LOYALTY // 001</div><div class="sticker two">NO ONE STANDS ALONE</div></div>
-</section>
-<section class="section" id="why"><div class="section-head"><h2>The code.</h2><p>The strongest alliances are built on principles. Quiet ones. Non-negotiable ones.</p></div><div class="cards"><article class="card"><div class="icon">◆</div><h3>01 — Show up</h3><p>When the room empties and the lights go out, you stay. Presence is the first promise.</p></article><article class="card"><div class="icon">◆</div><h3>02 — Keep secrets</h3><p>Trust is sacred. What is shared in confidence stays behind the walls.</p></article><article class="card"><div class="icon">◆</div><h3>03 — Never fold</h3><p>Distance, pressure, bad days — none of them rewrite the pact between real friends.</p></article></div></section>
-<section class="quote" id="promise"><blockquote>“It's not who I am underneath, but what I do that defines me.”</blockquote><p>— A reminder that loyalty is action</p></section>
-<section class="section" id="moments"><div class="section-head"><h2>After midnight.<br>Still together.</h2><p>The best stories are rarely planned. They are the nights, drives, failures, victories, and inside jokes no one else could understand.</p></div><div class="memories"><div class="memory m1"><h3>“Remember that night?”</h3><p>The stories that become classified forever.</p></div><div class="small-grid"><div class="memory m2"><h3>Unplanned missions</h3><p>Best adventures start with “you coming?”</p></div><div class="card"><div class="icon">◆</div><h3>THE SIGNAL</h3><p id="reminder">Send the person who always has your back one message tonight. No occasion required.</p><button class="btn secondary" onclick="newReminder()" style="margin-top:18px">Next directive</button></div></div></div></section>
-</main>
-<footer class="footer"><strong>WAYNE &amp; CO.</strong><span>Built for the rare people worth standing beside.</span></footer>
-<button class="heart-btn" aria-label="Send friendship signal" onclick="showToast('Signal received. Stay loyal.')">◆</button><div class="toast" id="toast"></div>
-</div>
-<script>
-function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
-function showToast(message){const t=document.getElementById('toast');t.textContent=message;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),2200)}
-const reminders=['Call the friend you keep meaning to call.','Send a photo that reminds you of a shared memory.','Thank a friend for one specific thing they have done.','Plan something simple: coffee, a walk, or a ridiculous adventure.','Tell your friend: “I’m glad you’re in my life.”'];
-function newReminder(){document.getElementById('reminder').textContent=reminders[Math.floor(Math.random()*reminders.length)];}
-</script>
+  <header class="nav">
+    <a href="#home" class="logo">💛 Friends Forever</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#qualities">Qualities</a>
+      <a href="#quotes">Quotes</a>
+      <a href="#tips">Tips</a>
+      <a href="#message">Send Love</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Friendship makes life brighter</h1>
+        <p>Celebrate the people who laugh with you, stand by you, and make every day better.</p>
+        <a href="#message" class="btn">Tell a Friend You Care</a>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>What is Friendship?</h2>
+      <p class="lead">
+        Friendship is a bond built on trust, kindness, and shared moments. A true friend
+        celebrates your wins, supports you through hard times, and accepts you as you are.
+      </p>
+    </section>
+
+    <section id="qualities" class="section alt">
+      <h2>Qualities of a Great Friend</h2>
+      <div class="cards">
+        <article class="card">
+          <span class="icon">🤝</span>
+          <h3>Trust</h3>
+          <p>They keep your secrets and have your back, always.</p>
+        </article>
+        <article class="card">
+          <span class="icon">😂</span>
+          <h3>Fun</h3>
+          <p>They turn ordinary days into unforgettable memories.</p>
+        </article>
+        <article class="card">
+          <span class="icon">👂</span>
+          <h3>Listening</h3>
+          <p>They hear you without judgement, even when you ramble.</p>
+        </article>
+        <article class="card">
+          <span class="icon">🌱</span>
+          <h3>Growth</h3>
+          <p>They encourage you to become the best version of yourself.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="quotes" class="section">
+      <h2>Words About Friendship</h2>
+      <div class="quote-box">
+        <p id="quoteText" class="quote-text"></p>
+        <button id="newQuote" class="btn">New Quote</button>
+      </div>
+    </section>
+
+    <section id="tips" class="section alt">
+      <h2>How to Be a Better Friend</h2>
+      <ul class="tips">
+        <li>Check in often, even with a simple "how are you?"</li>
+        <li>Show up when it matters, big or small.</li>
+        <li>Be honest, but always be kind.</li>
+        <li>Celebrate their success without jealousy.</li>
+        <li>Say sorry quickly and forgive generously.</li>
+        <li>Make time for each other, even when life gets busy.</li>
+      </ul>
+    </section>
+
+    <section id="message" class="section">
+      <h2>Send Some Love</h2>
+      <p class="lead">Write a message for your friend and see it appear on the wall below.</p>
+      <div class="form">
+        <input id="nameInput" type="text" placeholder="Friend's name" maxlength="30" />
+        <textarea id="msgInput" rows="3" placeholder="Write something kind..." maxlength="200"></textarea>
+        <button id="sendBtn" class="btn">Post Message</button>
+        <p id="formError" class="error"></p>
+      </div>
+      <div id="wall" class="wall"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with 💛 for friends everywhere. Hug a friend today!</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
