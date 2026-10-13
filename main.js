@@ -7,3 +7,10 @@ document.addEventListener("click", (e) => {
   if (!btn) return;
   console.log("Action:", btn.dataset.action);
 });
+
+window.addEventListener("resize", () => {
+  const row = document.querySelector(".button-row");
+  if (row) {
+    row.style.justifyContent = "center";
+  }
+});

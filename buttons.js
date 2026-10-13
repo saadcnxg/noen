@@ -3,12 +3,14 @@ export const buttons = {
     id: "save-btn",
     label: "Save",
     variant: "primary",
-    action: "save"
+    action: "save",
+    align: "center"
   },
   submit: {
     id: "submit-btn",
     label: "Submit",
     variant: "success",
-    action: "submit"
+    action: "submit",
+    align: "center"
   }
 };
